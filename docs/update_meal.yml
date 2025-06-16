@@ -1,0 +1,28 @@
+tags:
+  - Meals
+description: Update the data of the meal registered with ID submitted.
+parameters:
+  - name: ID
+    in: path
+    required: true
+    description: Meal ID (Number)
+    type: integer
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        calories:
+          type: integer
+        on_diet:
+          type: boolean
+responses:
+  200:
+    description: Meal updated.
+  404:
+    description: Meal not found.

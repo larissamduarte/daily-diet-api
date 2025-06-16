@@ -1,0 +1,30 @@
+tags:
+  - Meals
+description: Returns the meal registered with ID submitted.
+parameters:
+  - name: ID
+    in: path
+    required: true
+    description: Meal ID (Number)
+    type: integer
+responses:
+  200:
+    description: Meal found
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        calories:
+          type: integer
+        time:
+          type: string
+          format: date-time
+        on_diet:
+          type: boolean
+  404:
+    description: Meal not found.

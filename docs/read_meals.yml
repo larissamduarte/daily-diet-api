@@ -1,0 +1,34 @@
+tags:
+  - Meals
+description: Returns all meals recorded on the same day as the date submitted.
+parameters:
+  - name: time
+    in: path
+    required: true
+    description: Date in ISO format
+    example: "2025-05-20T00:00:00"
+    type: string
+    format: date-time
+responses:
+  200:
+    description: Meals list
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          description:
+            type: string
+          calories:
+            type: integer
+          time:
+            type: string
+            format: date-time
+          on_diet:
+            type: boolean
+  400:
+    description: Invalid date format.

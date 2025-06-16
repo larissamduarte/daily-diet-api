@@ -5,10 +5,13 @@ class Meal(db.Model):
     # Nome
     name = db.Column(db.String(50), nullable=False)
     # Descrição
-    description = db.Column(db.String(500))
+    description = db.Column(db.String(500), default="")
     # Quantidade de calorias
-    calories = db.Column(db.Integer)
+    calories = db.Column(db.Integer, default=0)
     # Data e Hora
-    time = db.Column(db.Datetime, nullable=False)
+    time = db.Column(db.DateTime, nullable=False)
     # Está dentro ou não da dieta
-    on_diet = db.Column(db.Boolean, nullable=False)
+    diet = db.Column(db.Boolean, nullable=False)
+
+    def to_dict(self):
+        return {meal.name: getattr(self, meal.name) for meal in self.__table__.columns}

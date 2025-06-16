@@ -1,0 +1,14 @@
+tags:
+  - Meals
+description: Delete the meal registered with ID submitted.
+parameters:
+  - name: ID
+    in: path
+    required: true
+    description: Meal ID (Number)
+    type: integer
+responses:
+  204:
+    description: Meal deleted (no content).
+  404:
+    description: Meal not found.

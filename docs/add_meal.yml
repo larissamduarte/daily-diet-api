@@ -1,0 +1,40 @@
+tags:
+  - Meals
+description: Create a new meal record.
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        calories:
+          type: integer
+        time:
+          type: string
+          format: date-time
+        on_diet:
+          type: boolean
+      required:
+        - name
+        - time
+responses:
+  201:
+    description: Meal created.
+  400:
+    description: Bad Request.
+    content:
+      application/json:
+        examples:
+          missingFields:
+            summary: Missing required fields
+            value:
+              message: "Missing required fields: 'name' and 'time'."
+          invalidTimeFormat:
+            summary: Invalid time format
+            value:
+              message: "Invalid date format. Use ISO format."
